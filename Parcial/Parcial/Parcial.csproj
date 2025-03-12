@@ -162,20 +162,48 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clases\clsAgencia.cs" />
+    <Compile Include="Clases\clsCliente.cs" />
+    <Compile Include="Clases\clsTipoVivienda.cs" />
+    <Compile Include="Clases\clsVenta.cs" />
+    <Compile Include="Clases\clsVivienda.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Agencia.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cliente.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DBSuper.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBSuper.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBSuper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DBSuper.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBSuper.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoVivienda.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Venta.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vivienda.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -201,7 +229,13 @@
     <Content Include="Global.asax" />
     <Content Include="Models\DBSuper.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
       <LastGenOutput>DBSuper.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBSuper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+      <LastGenOutput>DBSuper.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -232,9 +266,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBSuper.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\DBSuper.edmx.diagram">
+    <Content Include="Models\DBSuper.edmx.diagram">
       <DependentUpon>DBSuper.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

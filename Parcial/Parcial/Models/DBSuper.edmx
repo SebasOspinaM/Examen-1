@@ -248,7 +248,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ITM_ViviendasEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ITM_ViviendasEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agencias" EntityType="Self.Agencia" />
           <EntitySet Name="Clientes" EntityType="Self.Cliente" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -277,7 +277,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ITM_ViviendasModelStoreContainer" CdmEntityContainer="ITM_ViviendasEntities">
+        <EntityContainerMapping StorageEntityContainer="ITM_ViviendasModelStoreContainer" CdmEntityContainer="ITM_ViviendasEntities2">
           <EntitySetMapping Name="Agencias">
             <EntityTypeMapping TypeName="ITM_ViviendasModel.Agencia">
               <MappingFragment StoreEntitySet="Agencia">
@@ -356,7 +356,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -1,0 +1,75 @@
+﻿using Parcial.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Web;
+
+namespace Parcial.Clases
+{
+    public class clsTipoVivienda
+    {
+        private ITM_ViviendasEntities2 iTM_Viviendas = new ITM_ViviendasEntities2();
+        public TipoVivienda tipoVivienda { get; set; }
+
+        public string Insertar()
+        {
+            try
+            {
+                iTM_Viviendas.TipoViviendas.Add(tipoVivienda);
+                iTM_Viviendas.SaveChanges();
+                return "Tipo de vivienda insertado correctamente";
+            }
+            catch (Exception ex)
+            {
+                return "Error al insertar el tipo de vivienda: " + ex.Message;
+            }
+        }
+
+        public string Actualizar()
+        {
+            try
+            {
+                TipoVivienda tv = Consultar(tipoVivienda.Descripcion);
+                if (tv == null)
+                {
+                    return "Tipo de vivienda no existe";
+                }
+
+                iTM_Viviendas.TipoViviendas.AddOrUpdate(tipoVivienda);
+                iTM_Viviendas.SaveChanges();
+                return "Tipo de vivienda actualizado correctamente";
+            }
+            catch (Exception ex)
+            {
+                return "Error al actualizar el tipo de vivienda: " + ex.Message;
+            }
+        }
+
+        public TipoVivienda Consultar(string descripcion)
+        {
+            return iTM_Viviendas.TipoViviendas.FirstOrDefault(tv => tv.Descripcion == descripcion);
+        }
+
+        public string Eliminar()
+        {
+            try
+            {
+                TipoVivienda tv = Consultar(tipoVivienda.Descripcion);
+                if (tv == null)
+                {
+                    return "Tipo de vivienda no existe";
+                }
+
+                iTM_Viviendas.TipoViviendas.Remove(tv);
+                iTM_Viviendas.SaveChanges();
+                return "Tipo de vivienda eliminado correctamente";
+            }
+            catch (Exception ex)
+            {
+                return "Error al eliminar el tipo de vivienda: " + ex.Message;
+            }
+        }
+    }
+
+}
