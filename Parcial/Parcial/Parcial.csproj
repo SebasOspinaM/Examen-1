@@ -172,8 +172,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TiposViviendasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+
     <Compile Include="Controllers\VentasController.cs" />
     <Compile Include="Controllers\ViviendasController.cs" />
+    <Compile Include="Controllers\ValuesController1.cs" />
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,6 +239,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBSuper.edmx</DependentUpon>
       <LastGenOutput>DBSuper.Context.cs</LastGenOutput>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DBSuper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+      <LastGenOutput>DBSuper.cs</LastGenOutput>
     </Content>
     <Content Include="Models\DBSuper.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
