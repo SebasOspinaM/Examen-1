@@ -162,6 +162,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clases\clsAgencia.cs" />
+    <Compile Include="Clases\clsCliente.cs" />
+    <Compile Include="Clases\clsTipoVivienda.cs" />
+    <Compile Include="Clases\clsVenta.cs" />
+    <Compile Include="Clases\clsVivienda.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -224,8 +229,14 @@
     <Content Include="Global.asax" />
     <Content Include="Models\DBSuper.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
       <LastGenOutput>DBSuper.Context.cs</LastGenOutput>
       <DependentUpon>DBSuper.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DBSuper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+      <LastGenOutput>DBSuper.cs</LastGenOutput>
     </Content>
     <Content Include="Models\DBSuper.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
