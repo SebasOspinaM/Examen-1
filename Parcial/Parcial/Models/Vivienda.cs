@@ -9,6 +9,7 @@
 
 namespace Parcial.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -32,6 +33,7 @@ namespace Parcial.Models
         public virtual Agencia Agencia { get; set; }
         public virtual TipoVivienda TipoVivienda { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

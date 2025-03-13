@@ -3,16 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Web;
 
 namespace Parcial.Clases
 {
     public class clsVivienda
     {
         private ITM_ViviendasEntities2 iTM_Viviendas = new ITM_ViviendasEntities2();
-        public Vivienda vivienda { get; set; }
 
-        public string Insertar()
+        public List<Vivienda> ConsultarTodos()
+        {
+            return iTM_Viviendas.Viviendas.OrderBy(v => v.TamanoMetrosCuadrados).ToList();
+        }
+
+        public Vivienda Consultar(int ViviendaID)
+        {
+            return iTM_Viviendas.Viviendas.FirstOrDefault(v => v.ViviendaID == ViviendaID);
+        }
+
+        public string Insertar(Vivienda vivienda)
         {
             try
             {
@@ -26,7 +34,7 @@ namespace Parcial.Clases
             }
         }
 
-        public string Actualizar()
+        public string Actualizar(Vivienda vivienda)
         {
             try
             {
@@ -46,16 +54,11 @@ namespace Parcial.Clases
             }
         }
 
-        public Vivienda Consultar(int viviendaID)
-        {
-            return iTM_Viviendas.Viviendas.FirstOrDefault(v => v.ViviendaID == viviendaID);
-        }
-
-        public string Eliminar()
+        public string Eliminar(int ViviendaID)
         {
             try
             {
-                Vivienda viv = Consultar(vivienda.ViviendaID);
+                Vivienda viv = Consultar(ViviendaID);
                 if (viv == null)
                 {
                     return "Vivienda no existe";
@@ -71,5 +74,4 @@ namespace Parcial.Clases
             }
         }
     }
-
 }

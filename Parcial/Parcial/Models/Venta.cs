@@ -9,6 +9,7 @@
 
 namespace Parcial.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -17,6 +18,7 @@ namespace Parcial.Models
         public int VentaID { get; set; }
         public int ClienteID { get; set; }
         public int ViviendaID { get; set; }
+        [JsonIgnore]
         public System.DateTime FechaVenta { get; set; }
     
         public virtual Cliente Cliente { get; set; }
