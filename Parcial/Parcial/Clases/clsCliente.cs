@@ -3,16 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Web;
 
 namespace Parcial.Clases
 {
     public class clsCliente
     {
         private ITM_ViviendasEntities2 iTM_Viviendas = new ITM_ViviendasEntities2();
-        public Cliente cliente { get; set; }
 
-        public string Insertar()
+        public List<Cliente> ConsultarTodos()
+        {
+            return iTM_Viviendas.Clientes.OrderBy(p => p.Nombre).ToList();
+        }
+
+        public Cliente Consultar(int ClienteID)
+        {
+            return iTM_Viviendas.Clientes.FirstOrDefault(e => e.ClienteID == ClienteID);
+        }
+
+        public string Insertar(Cliente cliente)
         {
             try
             {
@@ -26,11 +34,11 @@ namespace Parcial.Clases
             }
         }
 
-        public string Actualizar()
+        public string Actualizar(Cliente cliente)
         {
             try
             {
-                Cliente cli = Consultar(cliente.Nombre);
+                Cliente cli = Consultar(cliente.ClienteID);
                 if (cli == null)
                 {
                     return "Cliente no existe";
@@ -46,16 +54,11 @@ namespace Parcial.Clases
             }
         }
 
-        public Cliente Consultar(string nombre)
-        {
-            return iTM_Viviendas.Clientes.FirstOrDefault(c => c.Nombre == nombre);
-        }
-
-        public string Eliminar()
+        public string Eliminar(int ClienteID)
         {
             try
             {
-                Cliente cli = Consultar(cliente.Nombre);
+                Cliente cli = Consultar(ClienteID);
                 if (cli == null)
                 {
                     return "Cliente no existe";
@@ -71,5 +74,4 @@ namespace Parcial.Clases
             }
         }
     }
-
 }

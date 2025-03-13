@@ -167,8 +167,13 @@
     <Compile Include="Clases\clsTipoVivienda.cs" />
     <Compile Include="Clases\clsVenta.cs" />
     <Compile Include="Clases\clsVivienda.cs" />
+    <Compile Include="Controllers\AgenciasController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TiposViviendasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VentasController.cs" />
+    <Compile Include="Controllers\ViviendasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

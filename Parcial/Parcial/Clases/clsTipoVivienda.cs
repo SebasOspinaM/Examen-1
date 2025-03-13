@@ -3,16 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Web;
 
 namespace Parcial.Clases
 {
     public class clsTipoVivienda
     {
         private ITM_ViviendasEntities2 iTM_Viviendas = new ITM_ViviendasEntities2();
-        public TipoVivienda tipoVivienda { get; set; }
 
-        public string Insertar()
+        public List<TipoVivienda> ConsultarTodos()
+        {
+            return iTM_Viviendas.TipoViviendas.OrderBy(tv => tv.TipoViviendaID).ToList();
+        }
+
+        public TipoVivienda Consultar(int TipoViviendaID)
+        {
+            return iTM_Viviendas.TipoViviendas.FirstOrDefault(tv => tv.TipoViviendaID == TipoViviendaID);
+        }
+
+        public string Insertar(TipoVivienda tipoVivienda)
         {
             try
             {
@@ -26,11 +34,11 @@ namespace Parcial.Clases
             }
         }
 
-        public string Actualizar()
+        public string Actualizar(TipoVivienda tipoVivienda)
         {
             try
             {
-                TipoVivienda tv = Consultar(tipoVivienda.Descripcion);
+                TipoVivienda tv = Consultar(tipoVivienda.TipoViviendaID);
                 if (tv == null)
                 {
                     return "Tipo de vivienda no existe";
@@ -46,16 +54,11 @@ namespace Parcial.Clases
             }
         }
 
-        public TipoVivienda Consultar(string descripcion)
-        {
-            return iTM_Viviendas.TipoViviendas.FirstOrDefault(tv => tv.Descripcion == descripcion);
-        }
-
-        public string Eliminar()
+        public string Eliminar(int TipoViviendaID)
         {
             try
             {
-                TipoVivienda tv = Consultar(tipoVivienda.Descripcion);
+                TipoVivienda tv = Consultar(TipoViviendaID);
                 if (tv == null)
                 {
                     return "Tipo de vivienda no existe";
@@ -71,5 +74,4 @@ namespace Parcial.Clases
             }
         }
     }
-
 }

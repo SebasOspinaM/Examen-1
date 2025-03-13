@@ -3,16 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Web;
 
 namespace Parcial.Clases
 {
     public class clsVenta
     {
         private ITM_ViviendasEntities2 iTM_Viviendas = new ITM_ViviendasEntities2();
-        public Venta venta { get; set; }
 
-        public string Insertar()
+        public List<Venta> ConsultarTodos()
+        {
+            return iTM_Viviendas.Ventas.OrderBy(v => v.FechaVenta).ToList();
+        }
+
+        public Venta Consultar(int VentaID)
+        {
+            return iTM_Viviendas.Ventas.FirstOrDefault(v => v.VentaID == VentaID);
+        }
+
+        public string Insertar(Venta venta)
         {
             try
             {
@@ -26,12 +34,12 @@ namespace Parcial.Clases
             }
         }
 
-        public string Actualizar()
+        public string Actualizar(Venta venta)
         {
             try
             {
-                Venta ven = Consultar(venta.VentaID);
-                if (ven == null)
+                Venta vta = Consultar(venta.VentaID);
+                if (vta == null)
                 {
                     return "Venta no existe";
                 }
@@ -46,22 +54,17 @@ namespace Parcial.Clases
             }
         }
 
-        public Venta Consultar(int ventaID)
-        {
-            return iTM_Viviendas.Ventas.FirstOrDefault(v => v.VentaID == ventaID);
-        }
-
-        public string Eliminar()
+        public string Eliminar(int VentaID)
         {
             try
             {
-                Venta ven = Consultar(venta.VentaID);
-                if (ven == null)
+                Venta vta = Consultar(VentaID);
+                if (vta == null)
                 {
                     return "Venta no existe";
                 }
 
-                iTM_Viviendas.Ventas.Remove(ven);
+                iTM_Viviendas.Ventas.Remove(vta);
                 iTM_Viviendas.SaveChanges();
                 return "Venta eliminada correctamente";
             }
@@ -71,5 +74,4 @@ namespace Parcial.Clases
             }
         }
     }
-
 }
