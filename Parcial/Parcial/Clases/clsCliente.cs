@@ -15,6 +15,10 @@ namespace Parcial.Clases
             return iTM_Viviendas.Clientes.OrderBy(p => p.Nombre).ToList();
         }
 
+        public List<Cliente> ConsultarTodos()
+        {
+            return iTM_Viviendas.Clientes.OrderBy(p => p.Nombre).ToList();
+        }
         public Cliente Consultar(int ClienteID)
         {
             return iTM_Viviendas.Clientes.FirstOrDefault(e => e.ClienteID == ClienteID);
